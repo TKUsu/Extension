@@ -19,17 +19,23 @@ extension String{
 }
 
 extension Date{
+    var weekend: String{
+        let dataFormatter = DateFormatter()
+//        dataFormatter.locale = Locale(identifier: "zh_Hant_TW")
+        dataFormatter.dateFormat = "EEEE"
+        return dataFormatter.string(from: self)
+    }
+    func now(_ format: String) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        
+        return formatter.string(from: self)
+    }
+    
     /// SwifterExt
     func string(_ format: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
         return dateFormatter.string(from: self)
-    }
-    
-    var weekend: String{
-        let dataFormatter = DateFormatter()
-        dataFormatter.locale = Locale(identifier: "zh_Hant_TW")
-        dataFormatter.dateFormat = "EEEE"
-        return dataFormatter.string(from: self)
     }
 }

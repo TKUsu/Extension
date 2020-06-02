@@ -8,7 +8,6 @@
 
 import UIKit
 
-// MARK: - Properties
 extension UIViewController{
     /// SwifterExt: Is top viewcontroller from windows
     var topVC: UIViewController?{
@@ -25,14 +24,11 @@ extension UIViewController{
         case none
         /// equal self frame
         case equalFrame
+        case equalSafeArea
         /// equal self superview frame
         case equalSuperview
         case equalTo(_ view: UIView)
     }
-}
-
-// MARK: - Method
-extension UIViewController{
     /// SwifterExt: add sub viewController
     /// - Parameters:
     ///   - vc: Sub ViewController
@@ -103,16 +99,14 @@ extension UIViewController{
             }
         }
     }
-}
-
-// MARK: - Private Method
-extension UIViewController{
+    
+    // MARK: - Private
     fileprivate func setViewConstraints(_ type: UIViewController.SubViewFrameType, _ subView: UIView) {
+        subView.translatesAutoresizingMaskIntoConstraints = false
         switch type {
         case .none:
             break
         case .equalFrame:
-            subView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
                 subView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                 subView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
@@ -126,13 +120,27 @@ extension UIViewController{
                     subView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor),
                     bottomLayoutGuide.topAnchor.constraint(equalTo: subView.bottomAnchor)])
             }
+        case .equalSafeArea:
+            NSLayoutConstraint.activate([
+                subView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                subView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            ])
+            if #available(iOS 11, *) {
+                let guide = view.safeAreaLayoutGuide
+                NSLayoutConstraint.activate([
+                    subView.topAnchor.constraint(equalTo: guide.topAnchor),
+                    guide.bottomAnchor.constraint(equalTo: subView.bottomAnchor)])
+            } else {
+                NSLayoutConstraint.activate([
+                    subView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor),
+                    bottomLayoutGuide.topAnchor.constraint(equalTo: subView.bottomAnchor)])
+            }
         case .equalSuperview:
             guard let v = view.superview else {
                 setViewConstraints(.equalFrame, subView)
-                print("[Error] view haven't superview, and use equal frame")
+                print("[Error] view haven't superview, and set frame use `equalFrame` model.")
                 return
             }
-            subView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
                 subView.leadingAnchor.constraint(equalTo: v.leadingAnchor),
                 subView.trailingAnchor.constraint(equalTo: v.trailingAnchor),
@@ -140,7 +148,6 @@ extension UIViewController{
                 v.bottomAnchor.constraint(equalTo: subView.bottomAnchor)
             ])
         case .equalTo(let view):
-            subView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
                 subView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                 subView.trailingAnchor.constraint(equalTo: view.trailingAnchor),

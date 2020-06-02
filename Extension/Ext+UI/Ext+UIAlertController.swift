@@ -8,7 +8,6 @@
 
 import UIKit
 
-// MARK: Method
 extension UIAlertController{
     /// SwifterExt: initialize and add into alert
     func action(title: String

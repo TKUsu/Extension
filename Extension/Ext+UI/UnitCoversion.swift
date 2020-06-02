@@ -8,5 +8,4 @@
 
 import UIKit
 
-/// pt to px
 let ptpx: CGFloat = 42 / 56

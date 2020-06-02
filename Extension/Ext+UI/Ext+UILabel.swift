@@ -8,9 +8,7 @@
 
 import UIKit
 
-// MARK: - Method
 extension UILabel{
-    /// SwifterExt:
     func resize() {
         let label: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: frame.width, height: CGFloat.infinity))
         label.numberOfLines = 0

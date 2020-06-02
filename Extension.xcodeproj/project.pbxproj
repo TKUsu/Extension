@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8BE22C5424865BB800F62D9C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 8BE22C5324865BB700F62D9C /* README.md */; };
+		D03E82DB246BEC9B00D30641 /* Ext+CIFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03E82DA246BEC9B00D30641 /* Ext+CIFilter.swift */; };
 		D060B40424206B0900E04C5D /* Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = D060B40224206B0900E04C5D /* Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D060B45224206C4900E04C5D /* UnitCoversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D060B40C24206B3300E04C5D /* UnitCoversion.swift */; };
 		D060B45324206C4C00E04C5D /* Ext+Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = D060B42424206B4700E04C5D /* Ext+Int.swift */; };
@@ -30,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8BE22C5324865BB700F62D9C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D03E82DA246BEC9B00D30641 /* Ext+CIFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+CIFilter.swift"; sourceTree = "<group>"; };
 		D060B3FF24206B0900E04C5D /* Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D060B40224206B0900E04C5D /* Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Extension.h; sourceTree = "<group>"; };
 		D060B40324206B0900E04C5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -65,9 +69,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D03E82DC246BEC9E00D30641 /* Ext+CI */ = {
+			isa = PBXGroup;
+			children = (
+				D03E82DA246BEC9B00D30641 /* Ext+CIFilter.swift */,
+			);
+			path = "Ext+CI";
+			sourceTree = "<group>";
+		};
 		D060B3F524206B0900E04C5D = {
 			isa = PBXGroup;
 			children = (
+				8BE22C5324865BB700F62D9C /* README.md */,
 				D060B40124206B0900E04C5D /* Extension */,
 				D060B40024206B0900E04C5D /* Products */,
 			);
@@ -88,6 +101,7 @@
 				D060B40C24206B3300E04C5D /* UnitCoversion.swift */,
 				D060B42324206B4700E04C5D /* Ext+Foundation */,
 				D060B40D24206B3500E04C5D /* Ext+UI */,
+				D03E82DC246BEC9E00D30641 /* Ext+CI */,
 				D060B40324206B0900E04C5D /* Info.plist */,
 			);
 			path = Extension;
@@ -203,6 +217,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BE22C5424865BB800F62D9C /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +231,7 @@
 				D060B45224206C4900E04C5D /* UnitCoversion.swift in Sources */,
 				D060B45324206C4C00E04C5D /* Ext+Int.swift in Sources */,
 				D060B45424206C4D00E04C5D /* Ext+String.swift in Sources */,
+				D03E82DB246BEC9B00D30641 /* Ext+CIFilter.swift in Sources */,
 				D060B45524206C5000E04C5D /* Ext+Bundle.swift in Sources */,
 				D060B45624206C5300E04C5D /* Ext+TimeInterval.swift in Sources */,
 				D060B45724206C5500E04C5D /* Ext+Date.swift in Sources */,

@@ -8,7 +8,6 @@
 
 import UIKit
 
-// MARK: - Properties
 extension UINavigationController{
     /// SwifterExt
     var rootViewController: UIViewController? {
@@ -23,16 +22,24 @@ extension UINavigationController{
         }
         return vc
     }
-}
-
-// MARK: - Method
-extension UINavigationController{
     /// SwifterExt: get from viewcontrollers
     func get<T: UIViewController>(_ viewController: T.Type) -> T? {
         for viewController in self.viewControllers{
             if let choose = viewController as? T{
                 return choose
             }
+        }
+        return nil
+    }
+    
+    @discardableResult
+    func pop<T: UIViewController>(To vc: T.Type, animate: Bool = true) -> T? {
+        for vc in self.viewControllers{
+            guard let findVC = vc as? T else {
+                continue
+            }
+            popToViewController(findVC, animated: animate)
+            return findVC
         }
         return nil
     }

@@ -11,4 +11,14 @@ import Foundation
 extension Int{
     /// SwifterExt: format to "mm:ss"
     var clockMin: String{ return String(format: "%02d:%02d", (self / 60), (self % 60)) }
+    
+    var HH: Int{
+        return self / 10000
+    }
+    var mm: Int{
+        return (self % 10000) / 100
+    }
+    var ss: Int{
+        return (self % 100)
+    }
 }

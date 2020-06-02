@@ -8,16 +8,11 @@
 
 import UIKit
 
-// MARK: - Properties
 extension UIStoryboard{
     /// SwifterExt
     var main: UIStoryboard{
         return UIStoryboard(name: "Main", bundle: nil)
     }
-}
-
-// MARK: - Method
-extension UIStoryboard{
     /// SwifterExt
     func instantiate<T: UIViewController>(_ viewController: T.Type) -> UIViewController? {
         guard let vc = self.instantiateViewController(withIdentifier: String(describing: viewController)) as? T else{

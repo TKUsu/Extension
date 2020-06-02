@@ -8,7 +8,7 @@
 
 import UIKit
 
-// MARK: - Properties
+// MARK: Object
 extension UIView{
     /// SwifterExt
     @IBInspectable var cornerRadius: CGFloat {
@@ -41,23 +41,5 @@ extension UIView{
     /// SwifterExt
     var minWidth: CGFloat{
         return min(bounds.width, bounds.height)
-    }
-}
-
-// MARK: - UI Method
-extension UIView {
-    /// SwifterExt: Reserve Color View, Object: maskRect
-    func mask(withRect maskRect: CGRect, cornerRadius: CGFloat, inverse: Bool = false) {
-        let maskLayer = CAShapeLayer()
-        let path = CGMutablePath()
-        if (inverse) {
-            path.addPath(UIBezierPath(roundedRect: self.bounds, cornerRadius: cornerRadius).cgPath)
-        }
-        path.addPath(UIBezierPath(roundedRect: maskRect, cornerRadius: cornerRadius).cgPath)
-        maskLayer.path = path
-        if (inverse) {
-            maskLayer.fillRule = CAShapeLayerFillRule.evenOdd
-        }
-        self.layer.mask = maskLayer;
     }
 }

@@ -61,13 +61,14 @@ import UIKit
     case iPad12_9
     
     /// Couldn't determine device
-    case unknown
+    case overSize
 }
 
 extension ScreenType: Comparable {
     public static func < (lhs: ScreenType, rhs: ScreenType) -> Bool {
         return lhs.rawValue < rhs.rawValue
     }
+    
     public static func > (lhs: ScreenType, rhs: ScreenType) -> Bool {
         return lhs.rawValue > rhs.rawValue
     }
@@ -79,42 +80,40 @@ extension UIScreen {
         return CGSize(width: (bounds.width * scale), height: (bounds.height * scale))
     }
     
-    /// SwifterExt: max(width, height)
+    /// SwifterExt
     static var screenLongestSide: CGFloat{
         return max(main.bounds.width, main.bounds.height)
     }
-    /// (current >= .iPad9_7) || (screenLongestSide >= 1024)
     static var iPad: Bool{
         return (current >= .iPad9_7) || (screenLongestSide >= 1024)
     }
     /// SwifterExt: Get iPhone/iPad current type
     @objc public static var current: ScreenType {
-        switch screenLongestSide {
-        case 480:
+        let size = screenLongestSide
+        if 480 <= size{
             return .iPhone3_5
-        case 568:
+        }else if size <= 568 {
             return .iPhone4_0
-        case 667:
+        }else if size <= 667 {
             return .iPhone4_7
-        case 736:
+        }else if size <= 736 {
             return .iPhone5_5
-        case 812:
+        }else if size <= 812 {
             return .iPhone5_8
-        case 896:
-            // 2x(6.1 inch) or 3x(6.5 inch)
+        }else if size <= 896 {
             return main.scale == 3 ? .iPhone6_5 : .iPhone6_1
-        case 1024:
+        }else if size <= 1024 {
             return .iPad9_7
-        case 1080:
+        }else if size <= 1080 {
             return .iPad10_2
-        case 1112:
+        }else if size <= 1112 {
             return .iPad10_5
-        case 1194:
+        }else if size <= 1194 {
             return .iPad11
-        case 1366:
+        }else if size <= 1366 {
             return .iPad12_9
-        default:
-            return .unknown
+        }else {
+            return .overSize
         }
     }
 }
