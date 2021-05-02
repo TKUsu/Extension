@@ -9,6 +9,26 @@
 import UIKit
 
 extension UIViewController{
+    // MARK: Keyboard
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    // MARK: Notification
+    func subscribeToNotification(_ notification: NSNotification.Name, selector: Selector) {
+        NotificationCenter.default.addObserver(self, selector: selector, name: notification, object: nil)
+    }
+    
+    func unsubscribeFromAllNotifications() {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     /// SwifterExt: Is top viewcontroller from windows
     var topVC: UIViewController?{
         if UIApplication.shared.windows.count > 0, var topVC = UIApplication.shared.windows[0].rootViewController{
@@ -20,6 +40,23 @@ extension UIViewController{
         return nil
     }
     
+    // MARK: show/dismiss ViewController
+    func showStoryboardVC<T: UIViewController>(_ viewController: T.Type) -> T? {
+        guard let vc = (storyboard?.instantiateViewController(identifier: String(describing: viewController)) as? T) else { return nil }
+        addChild(vc)
+        vc.view.frame = view.frame
+        view.addSubview(vc.view)
+        vc.didMove(toParent: self)
+        return vc
+    }
+    
+    func dismissStoryboardVC(_ viewController: UIViewController?) {
+        guard let vc = viewController else { return }
+        vc.willMove(toParent: nil)
+        vc.removeFromParent()
+        vc.view.removeFromSuperview()
+    }
+    // Detail
     enum SubViewFrameType {
         case none
         /// equal self frame

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HintTextView" customModule="Lucker" customModuleProvider="target">
+            <connections>
+                <outlet property="errorLabel" destination="c52-WM-M4o" id="N29-mw-jfD"/>
+                <outlet property="errorStackView" destination="Qh8-6R-Rgm" id="mwt-J6-EIv"/>
+                <outlet property="hintLabel" destination="MaZ-rb-HON" id="cYA-03-vwI"/>
+                <outlet property="hintStackView" destination="dfJ-lP-Zgi" id="30L-38-dzy"/>
+                <outlet property="needFlagLabel" destination="Jba-y1-SyP" id="SbU-vN-333"/>
+                <outlet property="textField" destination="wD0-ig-LIh" id="FOy-Cb-1Iy"/>
+                <outlet property="textFieldHeightConstraint" destination="0cm-nI-ZPl" id="R08-9u-5WV"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="421" height="85"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="yip-eN-MVb">
+                    <rect key="frame" x="0.0" y="0.0" width="421" height="85"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dfJ-lP-Zgi">
+                            <rect key="frame" x="0.0" y="0.0" width="421" height="31"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jba-y1-SyP">
+                                    <rect key="frame" x="0.0" y="0.0" width="10" height="31"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="10" id="uhr-Lt-mut"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" name="FB4034"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MaZ-rb-HON">
+                                    <rect key="frame" x="10" y="0.0" width="411" height="31"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wD0-ig-LIh">
+                            <rect key="frame" x="0.0" y="37" width="421" height="48"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="0cm-nI-ZPl"/>
+                            </constraints>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="textFieldEndAction:" destination="-1" eventType="editingDidEnd" id="aRC-XH-0b7"/>
+                                <action selector="textFieldTouchDown:" destination="-1" eventType="touchDown" id="fCT-0M-P4s"/>
+                            </connections>
+                        </textField>
+                        <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Qh8-6R-Rgm">
+                            <rect key="frame" x="0.0" y="85" width="421" height="20"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c52-WM-M4o">
+                                    <rect key="frame" x="0.0" y="0.0" width="421" height="20"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" name="FB4034"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="8KW-4K-8Z0"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="yip-eN-MVb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="CdL-y1-PP4"/>
+                <constraint firstAttribute="trailing" secondItem="yip-eN-MVb" secondAttribute="trailing" id="Umo-Ly-VsE"/>
+                <constraint firstItem="yip-eN-MVb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="oY5-HJ-BGA"/>
+                <constraint firstAttribute="bottom" secondItem="yip-eN-MVb" secondAttribute="bottom" id="vZ0-ul-g06"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="113.768115942029" y="-15.066964285714285"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="FB4034">
+            <color red="0.98431372549019602" green="0.25098039215686274" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

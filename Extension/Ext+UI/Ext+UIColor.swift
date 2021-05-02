@@ -27,4 +27,13 @@ extension UIColor{
             B: hex & 0xFF
         )
     }
+    
+    convenience init(_ hex: Int, a: CGFloat = 1.0) {
+        self.init(
+            R: (hex >> 16) & 0xFF,
+            G: (hex >> 8) & 0xFF,
+            B: hex & 0xFF,
+            a: a
+        )
+    }
 }
