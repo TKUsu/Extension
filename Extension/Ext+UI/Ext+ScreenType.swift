@@ -90,7 +90,7 @@ extension UIScreen {
     /// SwifterExt: Get iPhone/iPad current type
     @objc public static var current: ScreenType {
         let size = screenLongestSide
-        if 480 <= size{
+        if size <= 480 {
             return .iPhone3_5
         }else if size <= 568 {
             return .iPhone4_0
